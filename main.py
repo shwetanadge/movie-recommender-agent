@@ -19,6 +19,7 @@ class MovieRecommender(BaseModel):
     genre: str = Field(description = "Movie Genre")
     Industry: list[str] = Field(description="Specify which industry does the movie comes from?")
     year_range: list[str] = Field(description="year range in which you want that movie from")
+    description: str = Field(description = "Add the outline of the movie")
 
 #System prompt
 system_prompt = """
@@ -31,4 +32,11 @@ messages = [
     SystemMessage(content=system_prompt),
     HumanMessage(content="Find me a movie from hollywood with thriller genre between 2000 to 2010")
 ]
+
+#Agent Loop
+
+
+#Attach structure to the output
+structured_llm = llm.with_structured_output(MovieRecommender)
+response = structured_llm.invoke(messages)
 
