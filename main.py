@@ -35,6 +35,9 @@ messages = [
 
 #Agent Loop
 
+print("Agent starting...")
+
+
 
 #Attach structure to the output
 structured_llm = llm.with_structured_output(MovieRecommender)
